@@ -87,41 +87,42 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// The armadillo library is to allow the use of 3d cubes and other</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">// array types, with array math built in. This eliminates loops!</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;armadillo&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using namespace </span>arma;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> copy_cube_to_array(fcube cube_in,</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                        <span class="keywordtype">float</span> *array_out);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> copy_vector_to_array(std::vector&lt;float&gt; vector_in,</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;              int64_t nElements,</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;              <span class="keywordtype">float</span> *array_out);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;std::vector&lt;fcube&gt; transform_llr_to_xyz_3d(std::vector&lt;fcube&gt; llr);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;std::vector&lt;fcube&gt; rotate_around_x_3d(std::vector&lt;fcube&gt; XYZ_in, <span class="keywordtype">float</span> angle);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;std::vector&lt;fcube&gt; rotate_around_y_3d(std::vector&lt;fcube&gt; XYZ_in, <span class="keywordtype">float</span> angle);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;std::vector&lt;fcube&gt; rotate_around_z_3d(std::vector&lt;fcube&gt; XYZ_in, <span class="keywordtype">float</span> angle);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">void</span> transform_llr_to_xyz(<span class="keywordtype">float</span> llr_in[3], <span class="keywordtype">float</span> xyz_out[3]);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> transform_rot_z(<span class="keywordtype">float</span> xyz_in[3], <span class="keywordtype">float</span> angle_in, <span class="keywordtype">float</span> xyz_out[3]);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> transform_rot_y(<span class="keywordtype">float</span> xyz_in[3], <span class="keywordtype">float</span> angle_in, <span class="keywordtype">float</span> xyz_out[3]);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> transform_float_vector_to_array(std::vector&lt;float&gt; input,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                     <span class="keywordtype">float</span> output[3]);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> transform_vector_xyz_to_env(<span class="keywordtype">float</span> xyz_in[3],</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                                 <span class="keywordtype">float</span> lon,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                 <span class="keywordtype">float</span> lat,</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                 <span class="keywordtype">float</span> env_out[3]);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// These are not really transformations, but are placeholders</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> vector_diff(<span class="keywordtype">float</span> vect_in_1[3],</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                 <span class="keywordtype">float</span> vect_in_2[3],</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                 <span class="keywordtype">float</span> vect_out[3]);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;aether.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using namespace </span>arma;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> copy_cube_to_array(arma_cube cube_in,</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                        <span class="keywordtype">float</span> *array_out);</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> copy_vector_to_array(std::vector&lt;float&gt; vector_in,</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;              int64_t nElements,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;              <span class="keywordtype">float</span> *array_out);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;std::vector&lt;arma_cube&gt; transform_llr_to_xyz_3d(std::vector&lt;arma_cube&gt; llr);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;std::vector&lt;arma_cube&gt; rotate_around_x_3d(std::vector&lt;arma_cube&gt; XYZ_in, precision_t angle);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;std::vector&lt;arma_cube&gt; rotate_around_y_3d(std::vector&lt;arma_cube&gt; XYZ_in, precision_t angle);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;std::vector&lt;arma_cube&gt; rotate_around_z_3d(std::vector&lt;arma_cube&gt; XYZ_in, precision_t angle);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> transform_llr_to_xyz(precision_t llr_in[3], precision_t xyz_out[3]);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">void</span> transform_rot_z(precision_t xyz_in[3], precision_t angle_in, precision_t xyz_out[3]);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> transform_rot_y(precision_t xyz_in[3], precision_t angle_in, precision_t xyz_out[3]);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> transform_float_vector_to_array(std::vector&lt;float&gt; input,</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                                     precision_t output[3]);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> transform_vector_xyz_to_env(precision_t xyz_in[3],</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                 precision_t lon,</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                 precision_t lat,</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                                 precision_t env_out[3]);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// These are not really transformations, but are placeholders</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> vector_diff(precision_t vect_in_1[3],</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                 precision_t vect_in_2[3],</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                 precision_t vect_out[3]);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif  // INCLUDE_TRANSFORM_H_</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif  // INCLUDE_TRANSFORM_H_</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

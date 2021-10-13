@@ -85,26 +85,26 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define INCLUDE_BFIELD_H_</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="structbfield__info__type.html">    7</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structbfield__info__type.html">bfield_info_type</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keywordtype">float</span> b[3];</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <span class="keywordtype">float</span> lon;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">float</span> lat;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  precision_t b[3];</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  precision_t lon;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  precision_t lat;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;fvec get_magnetic_pole(<span class="keywordtype">int</span> IsNorth,</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;arma_vec get_magnetic_pole(<span class="keywordtype">int</span> IsNorth,</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;               <a class="code" href="classPlanets.html">Planets</a> planet,</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;               <a class="code" href="classInputs.html">Inputs</a> input,</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;               <a class="code" href="classReport.html">Report</a> &amp;report);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<a class="code" href="structbfield__info__type.html">bfield_info_type</a> get_bfield(<span class="keywordtype">float</span> lon,</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                            <span class="keywordtype">float</span> lat,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                            <span class="keywordtype">float</span> alt,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<a class="code" href="structbfield__info__type.html">bfield_info_type</a> get_bfield(precision_t lon,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                            precision_t lat,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                            precision_t alt,</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                            <a class="code" href="classPlanets.html">Planets</a> planet,</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                            <a class="code" href="classInputs.html">Inputs</a> input,</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                            <a class="code" href="classReport.html">Report</a> &amp;report);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<a class="code" href="structbfield__info__type.html">bfield_info_type</a> get_dipole(<span class="keywordtype">float</span> lon,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                            <span class="keywordtype">float</span> lat,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                            <span class="keywordtype">float</span> alt,</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<a class="code" href="structbfield__info__type.html">bfield_info_type</a> get_dipole(precision_t lon,</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                            precision_t lat,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                            precision_t alt,</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                            <a class="code" href="classPlanets.html">Planets</a> planet,</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                            <a class="code" href="classInputs.html">Inputs</a> input,</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                            <a class="code" href="classReport.html">Report</a> &amp;report);</div>
@@ -112,9 +112,9 @@ $(function() {
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif // INCLUDE_BFIELD_H_</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructbfield__info__type_html"><div class="ttname"><a href="structbfield__info__type.html">bfield_info_type</a></div><div class="ttdef"><b>Definition:</b> bfield.h:7</div></div>
-<div class="ttc" id="aclassPlanets_html"><div class="ttname"><a href="classPlanets.html">Planets</a></div><div class="ttdef"><b>Definition:</b> planets.h:13</div></div>
-<div class="ttc" id="aclassInputs_html"><div class="ttname"><a href="classInputs.html">Inputs</a></div><div class="ttdef"><b>Definition:</b> inputs.h:15</div></div>
-<div class="ttc" id="aclassReport_html"><div class="ttname"><a href="classReport.html">Report</a></div><div class="ttdef"><b>Definition:</b> report.h:10</div></div>
+<div class="ttc" id="aclassPlanets_html"><div class="ttname"><a href="classPlanets.html">Planets</a></div><div class="ttdef"><b>Definition:</b> planets.h:16</div></div>
+<div class="ttc" id="aclassInputs_html"><div class="ttname"><a href="classInputs.html">Inputs</a></div><div class="ttdef"><b>Definition:</b> inputs.h:10</div></div>
+<div class="ttc" id="aclassReport_html"><div class="ttname"><a href="classReport.html">Report</a></div><div class="ttdef"><b>Definition:</b> report.h:28</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

@@ -86,36 +86,66 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a458a5e2d98589284a5401631a4736855"><td class="memItemLeft" align="right" valign="top"><a id="a458a5e2d98589284a5401631a4736855"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>cName</b></td></tr>
 <tr class="separator:a458a5e2d98589284a5401631a4736855"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c36390d1eb829ec5e9b15ea3fb51c4"><td class="memItemLeft" align="right" valign="top"><a id="aa9c36390d1eb829ec5e9b15ea3fb51c4"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>mass</b></td></tr>
-<tr class="separator:aa9c36390d1eb829ec5e9b15ea3fb51c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c98e200a7082ad773a1dc1bcc540cc2"><td class="memItemLeft" align="right" valign="top"><a id="a3c98e200a7082ad773a1dc1bcc540cc2"></a>
+precision_t&#160;</td><td class="memItemRight" valign="bottom"><b>mass</b></td></tr>
+<tr class="separator:a3c98e200a7082ad773a1dc1bcc540cc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8443c9be9bcdcb0e291b96e6491e9635"><td class="memItemLeft" align="right" valign="top"><a id="a8443c9be9bcdcb0e291b96e6491e9635"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>charge</b></td></tr>
 <tr class="separator:a8443c9be9bcdcb0e291b96e6491e9635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa62b96d45d96130965698beefb72f4d"><td class="memItemLeft" align="right" valign="top"><a id="afa62b96d45d96130965698beefb72f4d"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>DoAdvect</b></td></tr>
 <tr class="separator:afa62b96d45d96130965698beefb72f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a600625126eb369075f43f79f04c99ea9"><td class="memItemLeft" align="right" valign="top"><a id="a600625126eb369075f43f79f04c99ea9"></a>
-fcube&#160;</td><td class="memItemRight" valign="bottom"><b>density_scgc</b></td></tr>
-<tr class="separator:a600625126eb369075f43f79f04c99ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0198a85ad88fe7e31397c1b91e369c63"><td class="memItemLeft" align="right" valign="top"><a id="a0198a85ad88fe7e31397c1b91e369c63"></a>
-fcube&#160;</td><td class="memItemRight" valign="bottom"><b>par_velocity_vcgc</b></td></tr>
-<tr class="separator:a0198a85ad88fe7e31397c1b91e369c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e762aa782deb52ac894634e5bd977a2"><td class="memItemLeft" align="right" valign="top"><a id="a4e762aa782deb52ac894634e5bd977a2"></a>
-fcube&#160;</td><td class="memItemRight" valign="bottom"><b>perp_velocity_vcgc</b></td></tr>
-<tr class="separator:a4e762aa782deb52ac894634e5bd977a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa623286ae9a6d6b92a499bbb90c10ff0"><td class="memItemLeft" align="right" valign="top"><a id="aa623286ae9a6d6b92a499bbb90c10ff0"></a>
-fcube&#160;</td><td class="memItemRight" valign="bottom"><b>temperature_scgc</b></td></tr>
-<tr class="separator:aa623286ae9a6d6b92a499bbb90c10ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a364e71a29642d06c4d876f87cb190901"><td class="memItemLeft" align="right" valign="top"><a id="a364e71a29642d06c4d876f87cb190901"></a>
-fcube&#160;</td><td class="memItemRight" valign="bottom"><b>ionization_scgc</b></td></tr>
-<tr class="separator:a364e71a29642d06c4d876f87cb190901"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a41989a990a2eb6b79c404170f41c4f"><td class="memItemLeft" align="right" valign="top"><a id="a1a41989a990a2eb6b79c404170f41c4f"></a>
-fcube&#160;</td><td class="memItemRight" valign="bottom"><b>sources_scgc</b></td></tr>
-<tr class="separator:a1a41989a990a2eb6b79c404170f41c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33301895277cf4f415006099cb6993af"><td class="memItemLeft" align="right" valign="top"><a id="a33301895277cf4f415006099cb6993af"></a>
-fcube&#160;</td><td class="memItemRight" valign="bottom"><b>losses_scgc</b></td></tr>
-<tr class="separator:a33301895277cf4f415006099cb6993af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff85d49b238568ce2baa0d59ef29b213"><td class="memItemLeft" align="right" valign="top"><a id="aff85d49b238568ce2baa0d59ef29b213"></a>
+std::vector&lt; precision_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_ion_neutral_coef</b></td></tr>
+<tr class="separator:aff85d49b238568ce2baa0d59ef29b213"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ac73cc4d4abc404010cf2f365f0ff1e"><td class="memItemLeft" align="right" valign="top"><a id="a7ac73cc4d4abc404010cf2f365f0ff1e"></a>
+std::vector&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_is_resonant</b></td></tr>
+<tr class="separator:a7ac73cc4d4abc404010cf2f365f0ff1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a099a6fc5ab3ff3d15b60c489bddf8a9d"><td class="memItemLeft" align="right" valign="top"><a id="a099a6fc5ab3ff3d15b60c489bddf8a9d"></a>
+std::vector&lt; precision_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_ion_ion</b></td></tr>
+<tr class="separator:a099a6fc5ab3ff3d15b60c489bddf8a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae5a5ee601d18a2517e1f5fd2ccc44bf"><td class="memItemLeft" align="right" valign="top"><a id="aae5a5ee601d18a2517e1f5fd2ccc44bf"></a>
+std::vector&lt; precision_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_ion_electron</b></td></tr>
+<tr class="separator:aae5a5ee601d18a2517e1f5fd2ccc44bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1206dbc50a2ca35387f6f1a4326f6d19"><td class="memItemLeft" align="right" valign="top"><a id="a1206dbc50a2ca35387f6f1a4326f6d19"></a>
+std::vector&lt; precision_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_in_res_temp_min</b></td></tr>
+<tr class="separator:a1206dbc50a2ca35387f6f1a4326f6d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4653240ad1fc8b19bd2359249cf3084f"><td class="memItemLeft" align="right" valign="top"><a id="a4653240ad1fc8b19bd2359249cf3084f"></a>
+std::vector&lt; precision_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_in_res_coef1</b></td></tr>
+<tr class="separator:a4653240ad1fc8b19bd2359249cf3084f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada11a442ea09b7517ac47fa6f30e6745"><td class="memItemLeft" align="right" valign="top"><a id="ada11a442ea09b7517ac47fa6f30e6745"></a>
+std::vector&lt; precision_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_in_res_coef2</b></td></tr>
+<tr class="separator:ada11a442ea09b7517ac47fa6f30e6745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea1a1ae03c8c1c5cb3c2659653302c9a"><td class="memItemLeft" align="right" valign="top"><a id="aea1a1ae03c8c1c5cb3c2659653302c9a"></a>
+std::vector&lt; precision_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_in_res_tn_frac</b></td></tr>
+<tr class="separator:aea1a1ae03c8c1c5cb3c2659653302c9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a18e858d4a8c4f904c3bf902301ef40"><td class="memItemLeft" align="right" valign="top"><a id="a7a18e858d4a8c4f904c3bf902301ef40"></a>
+std::vector&lt; precision_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_in_res_ti_frac</b></td></tr>
+<tr class="separator:a7a18e858d4a8c4f904c3bf902301ef40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61a4790a0fd2fb1071b736ebc9c2e6d4"><td class="memItemLeft" align="right" valign="top"><a id="a61a4790a0fd2fb1071b736ebc9c2e6d4"></a>
+std::vector&lt; arma_cube &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>nu_ion_neutral_vcgc</b></td></tr>
+<tr class="separator:a61a4790a0fd2fb1071b736ebc9c2e6d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4c778453542ba71dabbb37641bbf829"><td class="memItemLeft" align="right" valign="top"><a id="aa4c778453542ba71dabbb37641bbf829"></a>
+arma_cube&#160;</td><td class="memItemRight" valign="bottom"><b>density_scgc</b></td></tr>
+<tr class="separator:aa4c778453542ba71dabbb37641bbf829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70710fa094fdb8191244e728e0608035"><td class="memItemLeft" align="right" valign="top"><a id="a70710fa094fdb8191244e728e0608035"></a>
+std::vector&lt; arma_cube &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>par_velocity_vcgc</b></td></tr>
+<tr class="separator:a70710fa094fdb8191244e728e0608035"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fec7a6dd787e1d28920e17acea95820"><td class="memItemLeft" align="right" valign="top"><a id="a5fec7a6dd787e1d28920e17acea95820"></a>
+std::vector&lt; arma_cube &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>perp_velocity_vcgc</b></td></tr>
+<tr class="separator:a5fec7a6dd787e1d28920e17acea95820"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a826e0677c7fd5e11eb1168254a7e6b61"><td class="memItemLeft" align="right" valign="top"><a id="a826e0677c7fd5e11eb1168254a7e6b61"></a>
+arma_cube&#160;</td><td class="memItemRight" valign="bottom"><b>temperature_scgc</b></td></tr>
+<tr class="separator:a826e0677c7fd5e11eb1168254a7e6b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add9236dd590df1b1f78208a0aad57c06"><td class="memItemLeft" align="right" valign="top"><a id="add9236dd590df1b1f78208a0aad57c06"></a>
+arma_cube&#160;</td><td class="memItemRight" valign="bottom"><b>ionization_scgc</b></td></tr>
+<tr class="separator:add9236dd590df1b1f78208a0aad57c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d9ccca67f0153185a731ef6a5babb7"><td class="memItemLeft" align="right" valign="top"><a id="a18d9ccca67f0153185a731ef6a5babb7"></a>
+arma_cube&#160;</td><td class="memItemRight" valign="bottom"><b>sources_scgc</b></td></tr>
+<tr class="separator:a18d9ccca67f0153185a731ef6a5babb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf6e7064f6164af256a7ce7abd78bfb2"><td class="memItemLeft" align="right" valign="top"><a id="abf6e7064f6164af256a7ce7abd78bfb2"></a>
+arma_cube&#160;</td><td class="memItemRight" valign="bottom"><b>losses_scgc</b></td></tr>
+<tr class="separator:abf6e7064f6164af256a7ce7abd78bfb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/<a class="el" href="ions_8h_source.html">ions.h</a></li>

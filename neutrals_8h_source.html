@@ -84,121 +84,262 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef INCLUDE_NEUTRALS_H_</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define INCLUDE_NEUTRALS_H_</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="aether_8h.html">aether.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classNeutrals.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNeutrals.html">Neutrals</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="comment">// This struct contains all of the information needed for a single</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="comment">// species of neutrals.  We will then have a vector of these species.</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html">   19</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structNeutrals_1_1species__chars.html">species_chars</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::string cName;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">float</span> mass;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">float</span> vibe;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">int</span> DoAdvect;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/**************************************************************</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * \class Neutrals</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * \brief Defines the neutral states</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * </span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * The Neutrals class defines the neutrals states as well as a bunch</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * of derived states and source/loss terms.  The initial temperature</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * structure as well as the lower boundary densities can be set</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * through the planet input file.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> * \author Aaron Ridley</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> * \date 2021/03/28 </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> **************************************************************/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    fcube density_scgc;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classNeutrals.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNeutrals.html">Neutrals</a> {</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::vector&lt;float&gt; diff0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::vector&lt;float&gt; diff_exp;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::vector&lt;float&gt; neutral_ion;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">float</span> thermal_cond;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">float</span> thermal_exp;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">struct </span><a class="code" href="structNeutrals_1_1species__chars.html">species_chars</a> {</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">int</span> iEuvAbsId_;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> nEuvIonSpecies;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::vector&lt;int&gt; iEuvIonSpecies_;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::vector&lt;int&gt; iEuvIonId_;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// Some derived quantities:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    fcube chapman_scgc;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    fcube scale_height_scgc;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::string <a class="code" href="structNeutrals_1_1species__chars.html#a195d094f6632f6cd1080db799dd145f4">cName</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    precision_t <a class="code" href="structNeutrals_1_1species__chars.html#aac48c40d6b91bd8183665a43eb3db26d">mass</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    precision_t <a class="code" href="structNeutrals_1_1species__chars.html#a785c79de90afc31a7b77ec7e962c0e4b">vibe</a>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// Sources and Losses:</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    fcube ionization_scgc;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    fcube sources_scgc;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    fcube losses_scgc;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// If we want a fixed lower BC:</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">float</span> lower_bc_density;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  };</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="comment">// bulk quantities (states):</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structNeutrals_1_1species__chars.html#a257a5fcfcc261c4872d3bd29bc7db69c">DoAdvect</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    arma_cube <a class="code" href="structNeutrals_1_1species__chars.html#a7bd997fd216d64b53951f19784b97de8">density_scgc</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::vector&lt;float&gt; <a class="code" href="structNeutrals_1_1species__chars.html#a55aeca6ae474a22b5b1e7b213f2c82d3">diff0</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::vector&lt;float&gt; diff_exp;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::vector&lt;float&gt; <a class="code" href="structNeutrals_1_1species__chars.html#a24b89f93328ac392420035255ad0b0e5">neutral_ion</a>;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  fcube density_scgc;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  fcube temperature_scgc;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  fcube rho_scgc;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  fcube mean_major_mass_scgc;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  fcube pressure_scgc;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  fcube sound_scgc;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// For heating/cooling:</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  fcube Cv_scgc;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  fcube gamma_scgc;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  fcube kappa_scgc;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    precision_t <a class="code" href="structNeutrals_1_1species__chars.html#a0846f466bbd177e887f42a462ae727fa">thermal_cond</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    precision_t thermal_exp;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structNeutrals_1_1species__chars.html#a5ca270e740c62583ca31395cf4433e09">iEuvAbsId_</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a195d094f6632f6cd1080db799dd145f4">   64</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structNeutrals_1_1species__chars.html#a23d66d9ed8301db58d22320d5ffabde5">nEuvIonSpecies</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::vector&lt;int&gt; <a class="code" href="structNeutrals_1_1species__chars.html#a1295cea646a8eba4e6994a2cf2215f39">iEuvIonId_</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    std::vector&lt;int&gt; <a class="code" href="structNeutrals_1_1species__chars.html#a841e5f431faf9c957334c7ad131c5181">iEuvIonSpecies_</a>;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  std::vector&lt;species_chars&gt; species;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">float</span> max_chapman = 1.0e26;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">// Source terms:</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  fcube conduction_scgc;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  fcube heating_euv_scgc;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordtype">float</span> heating_efficiency;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a785c79de90afc31a7b77ec7e962c0e4b">   70</a></span>&#160;    <span class="keywordtype">int</span> nAuroraIonSpecies;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::vector&lt;int&gt; iAuroraIonSpecies_;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">float</span> Aurora_Coef;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a257a5fcfcc261c4872d3bd29bc7db69c">   73</a></span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// --------------------------------------------------</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// Some derived quantities:</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a7bd997fd216d64b53951f19784b97de8">   76</a></span>&#160;    arma_cube rho_alt_int_scgc;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a55aeca6ae474a22b5b1e7b213f2c82d3">   79</a></span>&#160;    arma_cube <a class="code" href="structNeutrals_1_1species__chars.html#aa044bf195045d9a06728914b291096c1">chapman_scgc</a>;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="comment">// This is an initial temperature profile, read in through the</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">// planet.in file:</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">float</span> *initial_temperatures, *initial_altitudes;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordtype">int</span> nInitial_temps = 0;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="comment">// names and units</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  std::string density_unit = <span class="stringliteral">&quot;(/m3)&quot;</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  std::string density_name = <span class="stringliteral">&quot;Neutral Bulk Density&quot;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    arma_cube <a class="code" href="structNeutrals_1_1species__chars.html#a6b88af2dd478701ec38f17c6adeb9559">scale_height_scgc</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a24b89f93328ac392420035255ad0b0e5">   83</a></span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="comment">// --------------------------------------------------</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="comment">// Sources and Losses:</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a0846f466bbd177e887f42a462ae727fa">   86</a></span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    arma_cube <a class="code" href="structNeutrals_1_1species__chars.html#ae3a3397f492524e52a9d66cf1f269587">ionization_scgc</a>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  std::string velocity_unit = <span class="stringliteral">&quot;(m/s)&quot;</span>;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  std::vector&lt;std::string&gt; velocity_name;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  std::string temperature_unit = <span class="stringliteral">&quot;(K)&quot;</span>;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  std::string temperature_name = <span class="stringliteral">&quot;Temperature&quot;</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    arma_cube <a class="code" href="structNeutrals_1_1species__chars.html#aa5bd9b00a006be7afd905e16ffe5e571">sources_scgc</a>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a23d66d9ed8301db58d22320d5ffabde5">   92</a></span>&#160;    </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a1295cea646a8eba4e6994a2cf2215f39">   94</a></span>&#160;    arma_cube <a class="code" href="structNeutrals_1_1species__chars.html#ae0e8e539f71b4ac1207dc10c14dcdd0c">losses_scgc</a>;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">// ------------------------------</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="comment">// Functions:</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <a class="code" href="classNeutrals.html">Neutrals</a>(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classInputs.html">Inputs</a> input, <a class="code" href="classReport.html">Report</a> report);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="structNeutrals_1_1species__chars.html">species_chars</a> create_species(<a class="code" href="classGrid.html">Grid</a> grid);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordtype">int</span> read_planet_file(<a class="code" href="classInputs.html">Inputs</a> input, <a class="code" href="classReport.html">Report</a> report);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">int</span> initial_conditions(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classInputs.html">Inputs</a> input, <a class="code" href="classReport.html">Report</a> report);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">void</span> fill_with_hydrostatic(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classReport.html">Report</a> report);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keywordtype">void</span> calc_mass_density(<a class="code" href="classReport.html">Report</a> &amp;report);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordtype">void</span> calc_specific_heat(<a class="code" href="classReport.html">Report</a> &amp;report);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordtype">void</span> calc_chapman(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classReport.html">Report</a> &amp;report);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordtype">void</span> calc_conduction(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classTimes.html">Times</a> time, <a class="code" href="classReport.html">Report</a> &amp;report);</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">void</span> add_sources(<a class="code" href="classTimes.html">Times</a> time, <a class="code" href="classReport.html">Report</a> &amp;report);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">void</span> set_bcs(<a class="code" href="classReport.html">Report</a> &amp;report);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;};</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif  // INCLUDE_NEUTRALS_H_</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    precision_t <a class="code" href="structNeutrals_1_1species__chars.html#acbfc246cc3f81abcbc77908652ad1ea0">lower_bc_density</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  };</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="comment">// bulk quantities (states):</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#aa04de879f1a84f690e8e72ab02cfc2b4">density_scgc</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  std::vector&lt;arma_cube&gt; <a class="code" href="classNeutrals.html#a1651b3e1f66ed993049e6b63063d0ac9">velocity_vcgc</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#aa044bf195045d9a06728914b291096c1">  107</a></span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#ae7436c55bc8aa5a6e236f7cd796fc05c">temperature_scgc</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#a6b88af2dd478701ec38f17c6adeb9559">  110</a></span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#af7945b9ffdf35a2f9006a886d06bc585">rho_scgc</a>;</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#a22eebf81dc8649f3a5246d9d15501697">mean_major_mass_scgc</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#ae3a3397f492524e52a9d66cf1f269587">  116</a></span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#a35380c111f05f764adc6e73da93ecbd7">pressure_scgc</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#aa5bd9b00a006be7afd905e16ffe5e571">  119</a></span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#a616a899ebfd88ce9f4f29cd331eaae6c">sound_scgc</a>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#ae0e8e539f71b4ac1207dc10c14dcdd0c">  122</a></span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#a00853b11b26bb41e152eb6d895f83578">Cv_scgc</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="structNeutrals_1_1species__chars.html#acbfc246cc3f81abcbc77908652ad1ea0">  125</a></span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#a925914cbafef01773b36bf4d3e8e9399">gamma_scgc</a>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  arma_cube <a class="code" href="classNeutrals.html#a2eafb4dbc68042d27c1ddb6866322b01">kappa_scgc</a>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  std::vector&lt;species_chars&gt; <a class="code" href="classNeutrals.html#a342877ade22733eb78967989f3e49d98">species</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  precision_t <a class="code" href="classNeutrals.html#a122f2d148d743e8e62feb03f6abdb11d">max_chapman</a> = 1.0e26;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classNeutrals.html#a00853b11b26bb41e152eb6d895f83578">  138</a></span>&#160;  <span class="comment">// Source terms:</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classNeutrals.html#a925914cbafef01773b36bf4d3e8e9399">  141</a></span>&#160;  arma_cube <a class="code" href="classNeutrals.html#aa50e6fb831fce960ab693349d5449c7a">conduction_scgc</a>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classNeutrals.html#a2eafb4dbc68042d27c1ddb6866322b01">  144</a></span>&#160;  arma_cube <a class="code" href="classNeutrals.html#a1b8155432fc44efab5d7f740d4e890f5">heating_euv_scgc</a>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classNeutrals.html#a342877ade22733eb78967989f3e49d98">  147</a></span>&#160;  precision_t <a class="code" href="classNeutrals.html#ac69890b30ccfb477208a6417951639e7">heating_efficiency</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classNeutrals.html#a122f2d148d743e8e62feb03f6abdb11d">  150</a></span>&#160;  <span class="keywordtype">float</span> *<a class="code" href="classNeutrals.html#a13fbed7a9ecbe686c0d8da48b25cce4d">initial_temperatures</a>, *initial_altitudes;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordtype">int</span> nInitial_temps = 0;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="comment">// names and units</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  std::string density_name = <span class="stringliteral">&quot;Neutral Bulk Density&quot;</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classNeutrals.html#aa50e6fb831fce960ab693349d5449c7a">  155</a></span>&#160;  std::string density_unit = <span class="stringliteral">&quot;(/m3)&quot;</span>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  std::vector&lt;std::string&gt; velocity_name;</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="classNeutrals.html#a1b8155432fc44efab5d7f740d4e890f5">  158</a></span>&#160;  std::string velocity_unit = <span class="stringliteral">&quot;(m/s)&quot;</span>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  std::string temperature_name = <span class="stringliteral">&quot;Temperature&quot;</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="classNeutrals.html#ac69890b30ccfb477208a6417951639e7">  161</a></span>&#160;  std::string temperature_unit = <span class="stringliteral">&quot;(K)&quot;</span>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="comment">// --------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classNeutrals.html#a13fbed7a9ecbe686c0d8da48b25cce4d">  164</a></span>&#160;  <span class="comment">// Functions:</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">     \brief Initialize the neutrals</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">     \param grid The grid to define the neutrals on</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">     \param input info about how user has configured things</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <a class="code" href="classNeutrals.html">Neutrals</a>(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classInputs.html">Inputs</a> input, <a class="code" href="classReport.html">Report</a> report);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">     \brief Creates the variables within the species_chars structure</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">     \param grid The grid to define the neutrals on</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="comment">     \param input info about how user has configured things</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <a class="code" href="structNeutrals_1_1species__chars.html">species_chars</a> create_species(<a class="code" href="classGrid.html">Grid</a> grid);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">     \brief Read in the planet-specific file</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">     This file specifies the species to model, their masses, </span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="comment">     diffusion coefficients and all of the other things needed</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">     for specifying the neutrals.</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">     \param input info about how user has configured things</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keywordtype">int</span> read_planet_file(<a class="code" href="classInputs.html">Inputs</a> input, <a class="code" href="classReport.html">Report</a> report);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">     \brief Sets the initial conditions of the neutrals</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">     \param grid The grid to define the neutrals on</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="comment">     \param input info about how user has configured things</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  <span class="keywordtype">int</span> initial_conditions(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classInputs.html">Inputs</a> input, <a class="code" href="classReport.html">Report</a> report);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">     \brief temporary function to set neutral densities with in the model</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="comment">     This function integrates the species densities from the bottom</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">     of the model using a hydrostatic approximation and the bulk</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">     temperature.  It is temporary until we get a vertical solver.</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="comment">     \param grid The grid to define the neutrals on</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keywordtype">void</span> fill_with_hydrostatic(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classReport.html">Report</a> report);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">     \brief Calculate the bulk mass density from individual species densities</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <span class="keywordtype">void</span> calc_mass_density(<a class="code" href="classReport.html">Report</a> &amp;report);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">     \brief Calculate the bulk specific heat from individual species</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keywordtype">void</span> calc_specific_heat(<a class="code" href="classReport.html">Report</a> &amp;report);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">     \brief Calculate the chapman integrals for the individual species</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">     \param grid The grid to define the neutrals on</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  <span class="keywordtype">void</span> calc_chapman(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classReport.html">Report</a> &amp;report);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">     \brief Calculate the neutral bulk vertical thermal conduction</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment">     \param grid The grid to define the neutrals on</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment">     \param time The times within the model (dt is needed)</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keywordtype">void</span> calc_conduction(<a class="code" href="classGrid.html">Grid</a> grid, <a class="code" href="classTimes.html">Times</a> time, <a class="code" href="classReport.html">Report</a> &amp;report);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">     \brief Add all of the neutral source terms to each of the equations</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">     \param time The times within the model (dt is needed)</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordtype">void</span> add_sources(<a class="code" href="classTimes.html">Times</a> time, <a class="code" href="classReport.html">Report</a> &amp;report);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment">  /**********************************************************************</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">     \brief Set boundary conditions for the neutrals</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">     \param report allow reporting to occur</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment">   **/</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="keywordtype">void</span> set_bcs(<a class="code" href="classReport.html">Report</a> &amp;report);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <span class="keywordtype">int</span> get_species_id(std::string name, <a class="code" href="classReport.html">Report</a> &amp;report);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;};</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="preprocessor">#endif  // INCLUDE_NEUTRALS_H_</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassInputs_html"><div class="ttname"><a href="classInputs.html">Inputs</a></div><div class="ttdef"><b>Definition:</b> inputs.h:15</div></div>
-<div class="ttc" id="aclassReport_html"><div class="ttname"><a href="classReport.html">Report</a></div><div class="ttdef"><b>Definition:</b> report.h:10</div></div>
-<div class="ttc" id="aclassTimes_html"><div class="ttname"><a href="classTimes.html">Times</a></div><div class="ttdef"><b>Definition:</b> times.h:10</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a55aeca6ae474a22b5b1e7b213f2c82d3"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a55aeca6ae474a22b5b1e7b213f2c82d3">Neutrals::species_chars::diff0</a></div><div class="ttdeci">std::vector&lt; float &gt; diff0</div><div class="ttdoc">Diffusion through other neutral species:</div><div class="ttdef"><b>Definition:</b> neutrals.h:79</div></div>
+<div class="ttc" id="aclassNeutrals_html_a13fbed7a9ecbe686c0d8da48b25cce4d"><div class="ttname"><a href="classNeutrals.html#a13fbed7a9ecbe686c0d8da48b25cce4d">Neutrals::initial_temperatures</a></div><div class="ttdeci">float * initial_temperatures</div><div class="ttdoc">Initial temperature profile, read in through the planet.in file:</div><div class="ttdef"><b>Definition:</b> neutrals.h:164</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_ae3a3397f492524e52a9d66cf1f269587"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#ae3a3397f492524e52a9d66cf1f269587">Neutrals::species_chars::ionization_scgc</a></div><div class="ttdeci">arma_cube ionization_scgc</div><div class="ttdoc">How much of this species is lost to ionization (/m3/s)</div><div class="ttdef"><b>Definition:</b> neutrals.h:116</div></div>
+<div class="ttc" id="aclassNeutrals_html_a00853b11b26bb41e152eb6d895f83578"><div class="ttname"><a href="classNeutrals.html#a00853b11b26bb41e152eb6d895f83578">Neutrals::Cv_scgc</a></div><div class="ttdeci">arma_cube Cv_scgc</div><div class="ttdoc">Specific heat (constant volume):</div><div class="ttdef"><b>Definition:</b> neutrals.h:138</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_acbfc246cc3f81abcbc77908652ad1ea0"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#acbfc246cc3f81abcbc77908652ad1ea0">Neutrals::species_chars::lower_bc_density</a></div><div class="ttdeci">precision_t lower_bc_density</div><div class="ttdoc">If we want a fixed lower BC:</div><div class="ttdef"><b>Definition:</b> neutrals.h:125</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_aa5bd9b00a006be7afd905e16ffe5e571"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#aa5bd9b00a006be7afd905e16ffe5e571">Neutrals::species_chars::sources_scgc</a></div><div class="ttdeci">arma_cube sources_scgc</div><div class="ttdoc">Chemistry source rate (/m3/s)</div><div class="ttdef"><b>Definition:</b> neutrals.h:119</div></div>
+<div class="ttc" id="aclassNeutrals_html_ac69890b30ccfb477208a6417951639e7"><div class="ttname"><a href="classNeutrals.html#ac69890b30ccfb477208a6417951639e7">Neutrals::heating_efficiency</a></div><div class="ttdeci">precision_t heating_efficiency</div><div class="ttdoc">Nuetral gas direct absorption heating efficiency (~5%)</div><div class="ttdef"><b>Definition:</b> neutrals.h:161</div></div>
+<div class="ttc" id="aclassNeutrals_html_a122f2d148d743e8e62feb03f6abdb11d"><div class="ttname"><a href="classNeutrals.html#a122f2d148d743e8e62feb03f6abdb11d">Neutrals::max_chapman</a></div><div class="ttdeci">precision_t max_chapman</div><div class="ttdoc">Maximum Chapman integral (will give nearly infinite tau in EUV)</div><div class="ttdef"><b>Definition:</b> neutrals.h:150</div></div>
+<div class="ttc" id="aclassNeutrals_html_a1651b3e1f66ed993049e6b63063d0ac9"><div class="ttname"><a href="classNeutrals.html#a1651b3e1f66ed993049e6b63063d0ac9">Neutrals::velocity_vcgc</a></div><div class="ttdeci">std::vector&lt; arma_cube &gt; velocity_vcgc</div><div class="ttdoc">bulk velocity (m/s)</div><div class="ttdef"><b>Definition:</b> neutrals.h:120</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a785c79de90afc31a7b77ec7e962c0e4b"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a785c79de90afc31a7b77ec7e962c0e4b">Neutrals::species_chars::vibe</a></div><div class="ttdeci">precision_t vibe</div><div class="ttdoc">Vibrations of species (for calculation specific heat)</div><div class="ttdef"><b>Definition:</b> neutrals.h:70</div></div>
+<div class="ttc" id="aclassNeutrals_html_a925914cbafef01773b36bf4d3e8e9399"><div class="ttname"><a href="classNeutrals.html#a925914cbafef01773b36bf4d3e8e9399">Neutrals::gamma_scgc</a></div><div class="ttdeci">arma_cube gamma_scgc</div><div class="ttdoc">Bulk Gamma:</div><div class="ttdef"><b>Definition:</b> neutrals.h:141</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a5ca270e740c62583ca31395cf4433e09"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a5ca270e740c62583ca31395cf4433e09">Neutrals::species_chars::iEuvAbsId_</a></div><div class="ttdeci">int iEuvAbsId_</div><div class="ttdoc">Which row in the EUV CSV file is for absorption:</div><div class="ttdef"><b>Definition:</b> neutrals.h:90</div></div>
+<div class="ttc" id="aclassInputs_html"><div class="ttname"><a href="classInputs.html">Inputs</a></div><div class="ttdef"><b>Definition:</b> inputs.h:10</div></div>
+<div class="ttc" id="aclassReport_html"><div class="ttname"><a href="classReport.html">Report</a></div><div class="ttdef"><b>Definition:</b> report.h:28</div></div>
+<div class="ttc" id="aclassNeutrals_html_a1b8155432fc44efab5d7f740d4e890f5"><div class="ttname"><a href="classNeutrals.html#a1b8155432fc44efab5d7f740d4e890f5">Neutrals::heating_euv_scgc</a></div><div class="ttdeci">arma_cube heating_euv_scgc</div><div class="ttdoc">Bulk neutral EUV heating temperatuare change (K/s)</div><div class="ttdef"><b>Definition:</b> neutrals.h:158</div></div>
+<div class="ttc" id="aclassNeutrals_html_af7945b9ffdf35a2f9006a886d06bc585"><div class="ttname"><a href="classNeutrals.html#af7945b9ffdf35a2f9006a886d06bc585">Neutrals::rho_scgc</a></div><div class="ttdeci">arma_cube rho_scgc</div><div class="ttdoc">bulk mass density (kg/m3)</div><div class="ttdef"><b>Definition:</b> neutrals.h:126</div></div>
+<div class="ttc" id="aclassNeutrals_html_a35380c111f05f764adc6e73da93ecbd7"><div class="ttname"><a href="classNeutrals.html#a35380c111f05f764adc6e73da93ecbd7">Neutrals::pressure_scgc</a></div><div class="ttdeci">arma_cube pressure_scgc</div><div class="ttdoc">mean pressure (Pa)</div><div class="ttdef"><b>Definition:</b> neutrals.h:132</div></div>
+<div class="ttc" id="aclassNeutrals_html_a342877ade22733eb78967989f3e49d98"><div class="ttname"><a href="classNeutrals.html#a342877ade22733eb78967989f3e49d98">Neutrals::species</a></div><div class="ttdeci">std::vector&lt; species_chars &gt; species</div><div class="ttdoc">Vector of all species-specific items:</div><div class="ttdef"><b>Definition:</b> neutrals.h:147</div></div>
+<div class="ttc" id="aclassNeutrals_html_a616a899ebfd88ce9f4f29cd331eaae6c"><div class="ttname"><a href="classNeutrals.html#a616a899ebfd88ce9f4f29cd331eaae6c">Neutrals::sound_scgc</a></div><div class="ttdeci">arma_cube sound_scgc</div><div class="ttdoc">speed of sound (m/s)</div><div class="ttdef"><b>Definition:</b> neutrals.h:135</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a24b89f93328ac392420035255ad0b0e5"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a24b89f93328ac392420035255ad0b0e5">Neutrals::species_chars::neutral_ion</a></div><div class="ttdeci">std::vector&lt; float &gt; neutral_ion</div><div class="ttdoc">Neutral - Ion collision frequency coefficients.</div><div class="ttdef"><b>Definition:</b> neutrals.h:83</div></div>
+<div class="ttc" id="aclassNeutrals_html_ae7436c55bc8aa5a6e236f7cd796fc05c"><div class="ttname"><a href="classNeutrals.html#ae7436c55bc8aa5a6e236f7cd796fc05c">Neutrals::temperature_scgc</a></div><div class="ttdeci">arma_cube temperature_scgc</div><div class="ttdoc">bunk temperature (K)</div><div class="ttdef"><b>Definition:</b> neutrals.h:123</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a7bd997fd216d64b53951f19784b97de8"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a7bd997fd216d64b53951f19784b97de8">Neutrals::species_chars::density_scgc</a></div><div class="ttdeci">arma_cube density_scgc</div><div class="ttdoc">Number density of species (/m3)</div><div class="ttdef"><b>Definition:</b> neutrals.h:76</div></div>
+<div class="ttc" id="aclassNeutrals_html_a2eafb4dbc68042d27c1ddb6866322b01"><div class="ttname"><a href="classNeutrals.html#a2eafb4dbc68042d27c1ddb6866322b01">Neutrals::kappa_scgc</a></div><div class="ttdeci">arma_cube kappa_scgc</div><div class="ttdoc">Bulk thermal heat conduction:</div><div class="ttdef"><b>Definition:</b> neutrals.h:144</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a195d094f6632f6cd1080db799dd145f4"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a195d094f6632f6cd1080db799dd145f4">Neutrals::species_chars::cName</a></div><div class="ttdeci">std::string cName</div><div class="ttdoc">Name of the species.</div><div class="ttdef"><b>Definition:</b> neutrals.h:64</div></div>
+<div class="ttc" id="aclassTimes_html"><div class="ttname"><a href="classTimes.html">Times</a></div><div class="ttdef"><b>Definition:</b> times.h:21</div></div>
+<div class="ttc" id="aclassNeutrals_html_aa50e6fb831fce960ab693349d5449c7a"><div class="ttname"><a href="classNeutrals.html#aa50e6fb831fce960ab693349d5449c7a">Neutrals::conduction_scgc</a></div><div class="ttdeci">arma_cube conduction_scgc</div><div class="ttdoc">Bulk neutral thermal conduction temperature change rate (K/s)</div><div class="ttdef"><b>Definition:</b> neutrals.h:155</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a841e5f431faf9c957334c7ad131c5181"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a841e5f431faf9c957334c7ad131c5181">Neutrals::species_chars::iEuvIonSpecies_</a></div><div class="ttdeci">std::vector&lt; int &gt; iEuvIonSpecies_</div><div class="ttdoc">Which ion species results from the ionization?</div><div class="ttdef"><b>Definition:</b> neutrals.h:96</div></div>
 <div class="ttc" id="aclassGrid_html"><div class="ttname"><a href="classGrid.html">Grid</a></div><div class="ttdef"><b>Definition:</b> arm_vars.h:11</div></div>
-<div class="ttc" id="aaether_8h_html"><div class="ttname"><a href="aether_8h.html">aether.h</a></div><div class="ttdoc">Main include file that includes other parts.</div></div>
-<div class="ttc" id="astructNeutrals_1_1species__chars_html"><div class="ttname"><a href="structNeutrals_1_1species__chars.html">Neutrals::species_chars</a></div><div class="ttdef"><b>Definition:</b> neutrals.h:19</div></div>
-<div class="ttc" id="aclassNeutrals_html"><div class="ttname"><a href="classNeutrals.html">Neutrals</a></div><div class="ttdef"><b>Definition:</b> neutrals.h:12</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_aa044bf195045d9a06728914b291096c1"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#aa044bf195045d9a06728914b291096c1">Neutrals::species_chars::chapman_scgc</a></div><div class="ttdeci">arma_cube chapman_scgc</div><div class="ttdoc">Chapman Integrals for the species for EUV calculation (/m2)</div><div class="ttdef"><b>Definition:</b> neutrals.h:107</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a0846f466bbd177e887f42a462ae727fa"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a0846f466bbd177e887f42a462ae727fa">Neutrals::species_chars::thermal_cond</a></div><div class="ttdeci">precision_t thermal_cond</div><div class="ttdoc">Thermal conduction coefficients:</div><div class="ttdef"><b>Definition:</b> neutrals.h:86</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_aac48c40d6b91bd8183665a43eb3db26d"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#aac48c40d6b91bd8183665a43eb3db26d">Neutrals::species_chars::mass</a></div><div class="ttdeci">precision_t mass</div><div class="ttdoc">Mass of the species (kg)</div><div class="ttdef"><b>Definition:</b> neutrals.h:67</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a6b88af2dd478701ec38f17c6adeb9559"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a6b88af2dd478701ec38f17c6adeb9559">Neutrals::species_chars::scale_height_scgc</a></div><div class="ttdeci">arma_cube scale_height_scgc</div><div class="ttdoc">Scale height for the species (m)</div><div class="ttdef"><b>Definition:</b> neutrals.h:110</div></div>
+<div class="ttc" id="aclassNeutrals_html_aa04de879f1a84f690e8e72ab02cfc2b4"><div class="ttname"><a href="classNeutrals.html#aa04de879f1a84f690e8e72ab02cfc2b4">Neutrals::density_scgc</a></div><div class="ttdeci">arma_cube density_scgc</div><div class="ttdoc">bulk number density (/m3)</div><div class="ttdef"><b>Definition:</b> neutrals.h:117</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html"><div class="ttname"><a href="structNeutrals_1_1species__chars.html">Neutrals::species_chars</a></div><div class="ttdef"><b>Definition:</b> neutrals.h:47</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_ae0e8e539f71b4ac1207dc10c14dcdd0c"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#ae0e8e539f71b4ac1207dc10c14dcdd0c">Neutrals::species_chars::losses_scgc</a></div><div class="ttdeci">arma_cube losses_scgc</div><div class="ttdoc">Chemistry loss rate (/m3/s)</div><div class="ttdef"><b>Definition:</b> neutrals.h:122</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a257a5fcfcc261c4872d3bd29bc7db69c"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a257a5fcfcc261c4872d3bd29bc7db69c">Neutrals::species_chars::DoAdvect</a></div><div class="ttdeci">int DoAdvect</div><div class="ttdoc">Advect this species? (1 = yes, 0 = no)</div><div class="ttdef"><b>Definition:</b> neutrals.h:73</div></div>
+<div class="ttc" id="aclassNeutrals_html_a22eebf81dc8649f3a5246d9d15501697"><div class="ttname"><a href="classNeutrals.html#a22eebf81dc8649f3a5246d9d15501697">Neutrals::mean_major_mass_scgc</a></div><div class="ttdeci">arma_cube mean_major_mass_scgc</div><div class="ttdoc">mean major mass (kg)</div><div class="ttdef"><b>Definition:</b> neutrals.h:129</div></div>
+<div class="ttc" id="aclassNeutrals_html"><div class="ttname"><a href="classNeutrals.html">Neutrals</a></div><div class="ttdef"><b>Definition:</b> neutrals.h:26</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a1295cea646a8eba4e6994a2cf2215f39"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a1295cea646a8eba4e6994a2cf2215f39">Neutrals::species_chars::iEuvIonId_</a></div><div class="ttdeci">std::vector&lt; int &gt; iEuvIonId_</div><div class="ttdoc">Which row in the EUV CSV file if for the particular ionization?</div><div class="ttdef"><b>Definition:</b> neutrals.h:94</div></div>
+<div class="ttc" id="astructNeutrals_1_1species__chars_html_a23d66d9ed8301db58d22320d5ffabde5"><div class="ttname"><a href="structNeutrals_1_1species__chars.html#a23d66d9ed8301db58d22320d5ffabde5">Neutrals::species_chars::nEuvIonSpecies</a></div><div class="ttdeci">int nEuvIonSpecies</div><div class="ttdoc">How many rows in the EUV CSV file are for ionization of this species?</div><div class="ttdef"><b>Definition:</b> neutrals.h:92</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
