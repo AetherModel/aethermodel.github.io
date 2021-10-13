@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['r_4629',['R',['../group__constants.html#ga3c3ec7a4590ef995214c9c1973660d2c',1,'Datum']]],
-  ['r_5finf_4630',['R_inf',['../group__constants.html#ga35e4a82e104188d1aa1b9ca0bcf3c6c2',1,'Datum']]],
-  ['r_5fk_4631',['R_k',['../group__constants.html#ga8a8f772285f6d1205c521d2c1b9c6d50',1,'Datum']]],
-  ['rho_5fscgc_4632',['rho_scgc',['../classNeutrals.html#af7945b9ffdf35a2f9006a886d06bc585',1,'Neutrals']]]
+  ['values_137',['values',['../structEuv_1_1waveinfotype.html#aad15b649553394a5ee648272d9e39f8a',1,'Euv::waveinfotype::values()'],['../structindex__file__output__struct.html#a198d86a3b1b80b8e3e906f6697c0fca2',1,'index_file_output_struct::values()']]],
+  ['var_5fnames_138',['var_names',['../structindex__file__output__struct.html#a0af5bb97def2aa1226ffcd37138ebce6',1,'index_file_output_struct']]],
+  ['velocity_5fvcgc_139',['velocity_vcgc',['../classNeutrals.html#a1651b3e1f66ed993049e6b63063d0ac9',1,'Neutrals']]],
+  ['vibe_140',['vibe',['../structNeutrals_1_1species__chars.html#a785c79de90afc31a7b77ec7e962c0e4b',1,'Neutrals::species_chars']]]
 ];

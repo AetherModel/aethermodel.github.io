@@ -1,23 +1,11 @@
 var searchData=
 [
-  ['largest_5falge_1359',['LARGEST_ALGE',['../structnewarp_1_1EigsSelect.html#ab0260df9bdbb849be305fa8461b6bcf8ae1435f85f2275d9d3c2e0b16b76d3445',1,'newarp::EigsSelect']]],
-  ['largest_5fimag_1360',['LARGEST_IMAG',['../structnewarp_1_1EigsSelect.html#ab0260df9bdbb849be305fa8461b6bcf8a45162a1bdf67085245afccf065dbdedb',1,'newarp::EigsSelect']]],
-  ['largest_5fmagn_1361',['LARGEST_MAGN',['../structnewarp_1_1EigsSelect.html#ab0260df9bdbb849be305fa8461b6bcf8a1a15d9c84d8b0cd7d1b990cfe38c6716',1,'newarp::EigsSelect']]],
-  ['largest_5freal_1362',['LARGEST_REAL',['../structnewarp_1_1EigsSelect.html#ab0260df9bdbb849be305fa8461b6bcf8a756f06e596b131444eb8891e5aed7d21',1,'newarp::EigsSelect']]],
-  ['less_3c_3a_3anlohmann_3a_3adetail_3a_3avalue_5ft_20_3e_1363',['less&lt;::nlohmann::detail::value_t &gt;',['../structstd_1_1less_3_1_1nlohmann_1_1detail_1_1value__t_01_4.html',1,'std']]],
-  ['lexer_1364',['lexer',['../classnlohmann_1_1detail_1_1lexer.html',1,'nlohmann::detail']]],
-  ['lexer_5fbase_1365',['lexer_base',['../classnlohmann_1_1detail_1_1lexer__base.html',1,'nlohmann::detail']]],
-  ['lines_5fread_1366',['lines_read',['../structnlohmann_1_1detail_1_1position__t.html#a4bbad8bc2c0d17c1b61c3ce729908b71',1,'nlohmann::detail::position_t']]],
-  ['literal_5ffalse_1367',['literal_false',['../classnlohmann_1_1detail_1_1lexer__base.html#aa3538cce439a2de6c7893e627b38c454afab1694b1b3937a079f4625fe0b6108b',1,'nlohmann::detail::lexer_base']]],
-  ['literal_5fnull_1368',['literal_null',['../classnlohmann_1_1detail_1_1lexer__base.html#aa3538cce439a2de6c7893e627b38c454ab7ae4c0e46d86f884677768160b26e9e',1,'nlohmann::detail::lexer_base']]],
-  ['literal_5for_5fvalue_1369',['literal_or_value',['../classnlohmann_1_1detail_1_1lexer__base.html#aa3538cce439a2de6c7893e627b38c454ad2a8e6f6721cccec0b466301dd9495a5',1,'nlohmann::detail::lexer_base']]],
-  ['literal_5ftrue_1370',['literal_true',['../classnlohmann_1_1detail_1_1lexer__base.html#aa3538cce439a2de6c7893e627b38c454a85cc1a37b0aaa52de40e72f0ed4e0c0d',1,'nlohmann::detail::lexer_base']]],
-  ['load_1371',['load',['../group__Cube.html#ga12aef27ddc9114a6f4d039d70f450f89',1,'Cube::load(const std::string name, const file_type type=auto_detect)'],['../group__Cube.html#ga6ec38cc55149ce55a6dc7e883c0ad87e',1,'Cube::load(std::istream &amp;is, const file_type type=auto_detect)'],['../group__Mat.html#gac0ca236821b17de61adafa03307bebe9',1,'Mat::load(const std::string name, const file_type type=auto_detect)'],['../group__Mat.html#ga5ee8d27ff837d2238484776a2a384665',1,'Mat::load(std::istream &amp;is, const file_type type=auto_detect)'],['../group__SpMat.html#gaca2bce6f4d3d5e091591fc52c3cf3eaa',1,'SpMat::load(const std::string name, const file_type type=arma_binary)'],['../group__SpMat.html#ga8522209ce27bb3ada916ec55cc660ce2',1,'SpMat::load(std::istream &amp;is, const file_type type=arma_binary)']]],
-  ['log_5fdet_1372',['log_det',['../group__auxlib.html#ga74d8fc5c3a1eb344df9c1053f90e1005',1,'auxlib::log_det()'],['../group__fn__log__det.html#gad3e63c713e6a1712b8c82337be5ec577',1,'log_det():&#160;fn_log_det.hpp']]],
-  ['log_5fmax_1373',['log_max',['../group__constants.html#ga2715186235eb30b755cae9c03e7fd804',1,'Datum::log_max()'],['../classMath.html#af3ed4179c2d961ecb89f5a4ce742d9fe',1,'Math::log_max()']]],
-  ['log_5fmin_1374',['log_min',['../group__constants.html#ga87b5749ce3ec3da9f0e82205093f110f',1,'Datum::log_min()'],['../classMath.html#a4bd69f97ba095fb6954f880a99b81ef8',1,'Math::log_min()']]],
-  ['log_5fsqrt2pi_1375',['log_sqrt2pi',['../group__constants.html#gaa5b9ceac27c11657b0efc9e223f3fe61',1,'Datum']]],
-  ['losses_5fscgc_1376',['losses_scgc',['../structNeutrals_1_1species__chars.html#ae0e8e539f71b4ac1207dc10c14dcdd0c',1,'Neutrals::species_chars']]],
-  ['lower_5fbc_5fdensity_1377',['lower_bc_density',['../structNeutrals_1_1species__chars.html#acbfc246cc3f81abcbc77908652ad1ea0',1,'Neutrals::species_chars']]],
-  ['lu_1378',['lu',['../group__auxlib.html#ga414bdef119dfc44395d8a5e54426b080',1,'auxlib::lu()'],['../group__fn__lu.html#ga876c7e074cdf609a2de2b16cb99231f5',1,'lu(Mat&lt; typename T1::elem_type &gt; &amp;L, Mat&lt; typename T1::elem_type &gt; &amp;U, const Base&lt; typename T1::elem_type, T1 &gt; &amp;X, const typename arma_blas_type_only&lt; typename T1::elem_type &gt;::result *junk=nullptr):&#160;fn_lu.hpp'],['../group__fn__lu.html#ga44e65b482c1f2357823bcbe4523a6aeb',1,'lu(Mat&lt; typename T1::elem_type &gt; &amp;L, Mat&lt; typename T1::elem_type &gt; &amp;U, Mat&lt; typename T1::elem_type &gt; &amp;P, const Base&lt; typename T1::elem_type, T1 &gt; &amp;X, const typename arma_blas_type_only&lt; typename T1::elem_type &gt;::result *junk=nullptr):&#160;fn_lu.hpp']]]
+  ['name_38',['name',['../structEuv_1_1waveinfotype.html#af0fe683631599409b24cf26d0f0208e2',1,'Euv::waveinfotype']]],
+  ['neutral_5fion_39',['neutral_ion',['../structNeutrals_1_1species__chars.html#a24b89f93328ac392420035255ad0b0e5',1,'Neutrals::species_chars']]],
+  ['neutrals_40',['Neutrals',['../classNeutrals.html',1,'']]],
+  ['neuvionspecies_41',['nEuvIonSpecies',['../structNeutrals_1_1species__chars.html#a23d66d9ed8301db58d22320d5ffabde5',1,'Neutrals::species_chars']]],
+  ['note_42',['note',['../structEuv_1_1waveinfotype.html#a18823833ea6a7ac86617515ea10d5cfa',1,'Euv::waveinfotype']]],
+  ['ntimes_43',['nTimes',['../structindex__file__output__struct.html#a169481fcb271f9db161f02336fe02e19',1,'index_file_output_struct']]],
+  ['nvars_44',['nVars',['../structindex__file__output__struct.html#af7dfc157cfa8f60af862626aee6811fd',1,'index_file_output_struct']]],
+  ['nwavelengths_45',['nWavelengths',['../classEuv.html#a82f06ae141b038a30d7631b9bf6b9572',1,'Euv']]]
 ];

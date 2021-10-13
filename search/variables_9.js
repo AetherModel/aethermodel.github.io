@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['k_4585',['k',['../group__constants.html#ga9d1f3d715c86313df6b64d3f353508ce',1,'Datum']]],
-  ['k_5fe_4586',['k_e',['../group__constants.html#gad49048cf7454034a4ec5362994ffbac3',1,'Datum']]],
-  ['k_5fevk_4587',['k_evk',['../group__constants.html#ga6651d06d397391cf9f818a745d6bd4e6',1,'Datum']]],
-  ['k_5fj_4588',['K_J',['../group__constants.html#gaba1b002495b59da7cc603f17e5875d3c',1,'Datum']]],
-  ['kappa_5fscgc_4589',['kappa_scgc',['../classNeutrals.html#a2eafb4dbc68042d27c1ddb6866322b01',1,'Neutrals']]]
+  ['name_118',['name',['../structEuv_1_1waveinfotype.html#af0fe683631599409b24cf26d0f0208e2',1,'Euv::waveinfotype']]],
+  ['neutral_5fion_119',['neutral_ion',['../structNeutrals_1_1species__chars.html#a24b89f93328ac392420035255ad0b0e5',1,'Neutrals::species_chars']]],
+  ['neuvionspecies_120',['nEuvIonSpecies',['../structNeutrals_1_1species__chars.html#a23d66d9ed8301db58d22320d5ffabde5',1,'Neutrals::species_chars']]],
+  ['note_121',['note',['../structEuv_1_1waveinfotype.html#a18823833ea6a7ac86617515ea10d5cfa',1,'Euv::waveinfotype']]],
+  ['ntimes_122',['nTimes',['../structindex__file__output__struct.html#a169481fcb271f9db161f02336fe02e19',1,'index_file_output_struct']]],
+  ['nvars_123',['nVars',['../structindex__file__output__struct.html#af7dfc157cfa8f60af862626aee6811fd',1,'index_file_output_struct']]],
+  ['nwavelengths_124',['nWavelengths',['../classEuv.html#a82f06ae141b038a30d7631b9bf6b9572',1,'Euv']]]
 ];

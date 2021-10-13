@@ -1,25 +1,5 @@
 var searchData=
 [
-  ['has_5ffrom_5fjson_2984',['has_from_json',['../structnlohmann_1_1detail_1_1has__from__json.html',1,'nlohmann::detail']]],
-  ['has_5ffrom_5fjson_3c_20basicjsontype_2c_20t_2c_20enable_5fif_5ft_3c_20_21is_5fbasic_5fjson_3c_20t_20_3e_3a_3avalue_20_3e_20_3e_2985',['has_from_json&lt; BasicJsonType, T, enable_if_t&lt; !is_basic_json&lt; T &gt;::value &gt; &gt;',['../structnlohmann_1_1detail_1_1has__from__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_9is3ee028c64c76c768be45996bb13fc9c5.html',1,'nlohmann::detail']]],
-  ['has_5fnested_5fglue_5ftraits_2986',['has_nested_glue_traits',['../structhas__nested__glue__traits.html',1,'']]],
-  ['has_5fnested_5fop_5ftraits_2987',['has_nested_op_traits',['../structhas__nested__op__traits.html',1,'']]],
-  ['has_5fnon_5fdefault_5ffrom_5fjson_2988',['has_non_default_from_json',['../structnlohmann_1_1detail_1_1has__non__default__from__json.html',1,'nlohmann::detail']]],
-  ['has_5fnon_5fdefault_5ffrom_5fjson_3c_20basicjsontype_2c_20t_2c_20enable_5fif_5ft_3c_20_21is_5fbasic_5fjson_3c_20t_20_3e_3a_3avalue_20_3e_20_3e_2989',['has_non_default_from_json&lt; BasicJsonType, T, enable_if_t&lt; !is_basic_json&lt; T &gt;::value &gt; &gt;',['../structnlohmann_1_1detail_1_1has__non__default__from__json_3_01BasicJsonType_00_01T_00_01enable__b7a8cd863889b54d1139b207b4233111.html',1,'nlohmann::detail']]],
-  ['has_5fop_5finv_2990',['has_op_inv',['../structhas__op__inv.html',1,'']]],
-  ['has_5fop_5finv_3c_20glue_3c_20op_3c_20t1_2c_20op_5finv_20_3e_2c_20t2_2c_20glue_5ftimes_20_3e_20_3e_2991',['has_op_inv&lt; Glue&lt; Op&lt; T1, op_inv &gt;, T2, glue_times &gt; &gt;',['../structhas__op__inv_3_01Glue_3_01Op_3_01T1_00_01op__inv_01_4_00_01T2_00_01glue__times_01_4_01_4.html',1,'']]],
-  ['has_5fop_5finv_3c_20glue_3c_20t1_2c_20op_3c_20t2_2c_20op_5finv_20_3e_2c_20glue_5ftimes_20_3e_20_3e_2992',['has_op_inv&lt; Glue&lt; T1, Op&lt; T2, op_inv &gt;, glue_times &gt; &gt;',['../structhas__op__inv_3_01Glue_3_01T1_00_01Op_3_01T2_00_01op__inv_01_4_00_01glue__times_01_4_01_4.html',1,'']]],
-  ['has_5fop_5finv_3c_20op_3c_20t1_2c_20op_5finv_20_3e_20_3e_2993',['has_op_inv&lt; Op&lt; T1, op_inv &gt; &gt;',['../structhas__op__inv_3_01Op_3_01T1_00_01op__inv_01_4_01_4.html',1,'']]],
-  ['has_5fop_5finv_5fsympd_2994',['has_op_inv_sympd',['../structhas__op__inv__sympd.html',1,'']]],
-  ['has_5fop_5finv_5fsympd_3c_20glue_3c_20op_3c_20t1_2c_20op_5finv_5fsympd_20_3e_2c_20t2_2c_20glue_5ftimes_20_3e_20_3e_2995',['has_op_inv_sympd&lt; Glue&lt; Op&lt; T1, op_inv_sympd &gt;, T2, glue_times &gt; &gt;',['../structhas__op__inv__sympd_3_01Glue_3_01Op_3_01T1_00_01op__inv__sympd_01_4_00_01T2_00_01glue__times_01_4_01_4.html',1,'']]],
-  ['has_5fop_5finv_5fsympd_3c_20glue_3c_20t1_2c_20op_3c_20t2_2c_20op_5finv_5fsympd_20_3e_2c_20glue_5ftimes_20_3e_20_3e_2996',['has_op_inv_sympd&lt; Glue&lt; T1, Op&lt; T2, op_inv_sympd &gt;, glue_times &gt; &gt;',['../structhas__op__inv__sympd_3_01Glue_3_01T1_00_01Op_3_01T2_00_01op__inv__sympd_01_4_00_01glue__times_01_4_01_4.html',1,'']]],
-  ['has_5fop_5finv_5fsympd_3c_20op_3c_20t1_2c_20op_5finv_5fsympd_20_3e_20_3e_2997',['has_op_inv_sympd&lt; Op&lt; T1, op_inv_sympd &gt; &gt;',['../structhas__op__inv__sympd_3_01Op_3_01T1_00_01op__inv__sympd_01_4_01_4.html',1,'']]],
-  ['has_5fto_5fjson_2998',['has_to_json',['../structnlohmann_1_1detail_1_1has__to__json.html',1,'nlohmann::detail']]],
-  ['has_5fto_5fjson_3c_20basicjsontype_2c_20t_2c_20enable_5fif_5ft_3c_20_21is_5fbasic_5fjson_3c_20t_20_3e_3a_3avalue_20_3e_20_3e_2999',['has_to_json&lt; BasicJsonType, T, enable_if_t&lt; !is_basic_json&lt; T &gt;::value &gt; &gt;',['../structnlohmann_1_1detail_1_1has__to__json_3_01BasicJsonType_00_01T_00_01enable__if__t_3_01_9is__4a8838c1c30336126696a126041e661c.html',1,'nlohmann::detail']]],
-  ['hash_3c_20nlohmann_3a_3ajson_20_3e_3000',['hash&lt; nlohmann::json &gt;',['../structstd_1_1hash_3_01nlohmann_1_1json_01_4.html',1,'std']]],
-  ['hdf5_5fname_3001',['hdf5_name',['../structhdf5__name.html',1,'']]],
-  ['herk_3002',['herk',['../classherk.html',1,'']]],
-  ['herk_5femul_3003',['herk_emul',['../classherk__emul.html',1,'']]],
-  ['herk_5fhelper_3004',['herk_helper',['../classherk__helper.html',1,'']]],
-  ['herk_5fvec_3005',['herk_vec',['../classherk__vec.html',1,'']]]
+  ['reaction_5ftype_85',['reaction_type',['../structChemistry_1_1reaction__type.html',1,'Chemistry']]],
+  ['report_86',['Report',['../classReport.html',1,'']]]
 ];
